@@ -8,23 +8,15 @@ namespace Nyxpiri.ULTRAKILL.MundaneMurder
 {
     public static class MundaneMurder
     {
-        public const string CheatID = "nyxpiri.mundane-murder";
-
         public static void Initialize()
         {
             Style.PreAddPoints += StylePreAddPoints;
             Style.PreShudUpdate += PreShudUpdate;
-            Cheats.ReadyForCheatRegistration += (cheatManager) =>
-            {
-                cheatManager.RegisterCheat(
-                    new ToggleCheat("mundanemurder Mode", CheatID, (cheat) => {}, (cheat, manager) => {}),
-                    "THIS GAME IF IT SUCKED:");
-            };
         }
 
         private static void PreShudUpdate(EventMethodCanceler canceler, StyleHUD shud)
         {
-            if (NyxLib.Cheats.IsCheatEnabled(CheatID))
+            if (NyxLib.Cheats.IsCheatEnabled(Cheats.MundaneMurder))
             {
                 canceler.CancelMethodForReimplementation(() =>
                 {
@@ -35,7 +27,7 @@ namespace Nyxpiri.ULTRAKILL.MundaneMurder
 
         private static void StylePreAddPoints(EventMethodCanceler canceler, StyleHUD shud, int points, string pointID, GameObject sourceWeapon, EnemyIdentifier eid, int count, string prefix, string postfix)
         {
-            if (NyxLib.Cheats.IsCheatEnabled(CheatID))
+            if (NyxLib.Cheats.IsCheatEnabled(Cheats.MundaneMurder))
             {
                 canceler.CancelMethodForReimplementation(() =>
                 {
