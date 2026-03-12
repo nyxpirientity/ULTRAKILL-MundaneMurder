@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BepInEx;
 using System;
+using System.IO;
 
 namespace Nyxpiri.ULTRAKILL.MundaneMurder
 {
@@ -18,6 +19,11 @@ namespace Nyxpiri.ULTRAKILL.MundaneMurder
             Log.Initialize(Logger);
             MundaneMurder.Initialize();
             NyxLib.Cheats.ReadyForCheatRegistration += RegisterCheats;
+            
+            if (!File.Exists(Config.ConfigFilePath))
+            {
+                Config.Save();
+            }
         }
 
         private void RegisterCheats(CheatsManager cheatsManager)
