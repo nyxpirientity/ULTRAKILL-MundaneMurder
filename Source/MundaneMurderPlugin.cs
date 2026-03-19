@@ -10,7 +10,7 @@ namespace Nyxpiri.ULTRAKILL.MundaneMurder
         public const string MundaneMurder = "nyxpiri.mundane-murder";
     }
 
-    [BepInPlugin("com.nyxpiri.bepinex.plugins.ultrakill.mundane-murder", "Mundane Murder", "0.0.0.1")]
+    [BepInPlugin("nyxpiri.ultrakill.mundane-murder", "Mundane Murder", "0.0.0.1")]
     [BepInProcess("ULTRAKILL.exe")]
     public class MundaneMurderPlugin : BaseUnityPlugin
     {
